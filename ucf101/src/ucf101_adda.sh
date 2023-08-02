@@ -1,0 +1,1 @@
+python ucf101_mars.py 1 0 1 --lambda_kd 40000.0 --method adda

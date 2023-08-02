@@ -1,0 +1,2 @@
+python hmdb51_patch_spp_main.py   1 0 0 1  0.5 lr 0.001
+clip 70.0 video 70.5

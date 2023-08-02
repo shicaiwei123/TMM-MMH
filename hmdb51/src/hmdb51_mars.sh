@@ -1,0 +1,1 @@
+python hmdb51_mars.py 1 0 1 --lambda_kd 50.0

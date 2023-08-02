@@ -1,0 +1,23 @@
+surf_patch_kd_multikd_attention0_sgd_multi_multi_rgb_lr_0.001_version_4_lambda_kd_0.4_weight_patch_1
+        x = torch.unsqueeze(x, 0)
+        x = torch.unsqueeze(x, 0)
+        # print(x.shape)
+        # print(self.linear_q)
+        q = self.linear_q(x)  # batch, n, dim_k
+        k = self.linear_k(x)  # batch, n, dim_k
+        # v = self.linear_v(x)  # batch, n, dim_v
+        v = x
+        k = torch.transpose(k, 1, 2)
+        v = torch.transpose(v, 1, 2)
+
+        #
+        dist = torch.bmm(k, q)  # batch, n, n
+        dist = torch.softmax(dist, dim=-1)  # batch, n, n
+        att = torch.bmm(dist, v)
+        # dist_save = torch.sum(dist, dim=1)
+        # save_csv("dist_attention_origin_2.csv", dist.cpu().detach().numpy())
+        return att
+
+928,932,920,919
+
+911 904 920 945
