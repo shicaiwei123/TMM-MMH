@@ -5,7 +5,6 @@ import torch
 from itertools import chain
 import os
 
-from src.multimodal_to_rgb_kd_dataloader import multimodal_to_rgb_kd_dataloader
 from src.surf_baseline_multi_dataloader import surf_baseline_multi_dataloader
 from models.surf_patch_feature import SURF_Patch_Feature
 from models.resnet_se_patch_feature import resnet18_se_patch_feature
@@ -18,12 +17,8 @@ from lib.processing_utils import seed_torch
 def deeppix_main(args):
     args.modal = args.student_modal  # 用于获取指定的模态训练学生模型
 
-    train_loader = multimodal_to_rgb_kd_dataloader(train=True, args=args)
-
-    if args.student_data == 'multi_rgb':  # 利用multi-modal 训练过程中rgb图像
-        test_loader = surf_baseline_multi_dataloader(train=False, args=args)
-    else:  # 利用单模态处理的rgb图像
-        test_loader = multimodal_to_rgb_kd_dataloader(train=False, args=args)
+    train_loader = surf_baseline_multi_dataloader(train=True, args=args)
+    test_loader = surf_baseline_multi_dataloader(train=False, args=args)
 
     args.log_name = args.name + '.csv'
     args.model_name = args.name

@@ -53,9 +53,7 @@ parser.add_argument('--kd_mode', type=str, default='st', help='mode of kd, which
 parser.add_argument('data_root', type=str,
                     default='/home/shicaiwei/data/liveness_data/CASIA-SUFR')
 parser.add_argument('gpu', type=int, default=0)
-parser.add_argument('--patch_num', type=int, default=4, help='patch_num x patch_num')
 parser.add_argument('version', type=int, default=0)
-parser.add_argument('sift', type=int, default=0)
 parser.add_argument('lr_warmup', type=int, default=1)
 parser.add_argument('lambda_kd_feature', type=float, default=1.0, help='trade-off parameter for kd loss')
 

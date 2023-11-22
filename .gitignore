@@ -1,0 +1,11 @@
+*.swp
+*.swn
+*.swo
+*.swm
+
+*.lprof
+.idea/*
+
+.cache
+__pycache__
+src/__pycache__
